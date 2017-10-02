@@ -3,7 +3,7 @@
 coverage run -m unittest discover tests/
 
 # reporting coverage
-coverage report
+coverage report -m
 
 # remove .coverage file
 coverage erase
