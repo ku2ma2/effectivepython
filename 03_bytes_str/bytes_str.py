@@ -9,7 +9,7 @@ def to_str(bytes_or_str):
     バイナリ(bytes)か文字列(str)かが分からない状態で bytes_or_str が
     与えられてバイナリだった場合は文字列にして返す
     """
-    return bytes_or_str
+    return b'string'
 
 
 def to_bytes(bytes_or_str):
