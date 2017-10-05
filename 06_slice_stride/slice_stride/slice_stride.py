@@ -8,26 +8,26 @@
 """
 
 
-def get_slice(slice_list, index: str = ''):
+def get_slice_stride(slice_list, index: str = ''):
     """
     入力されたスライスを文字列表現されたインデックスを解釈して返す
+    スライスの増分(stride)の
 
-    >>> get_slice(['a','b','c'], '1:3')
+    >>> get_slice(['a','b','c'], '1:3:1')
     ['b','c']
     """
 
     indexes = index.split(':')
-    start = None
-    end = None
+    key = []
 
-    if indexes[0]:
-        start = int(indexes[0])
+    for i in range(3):
+        if indexes[i]:
+            key.append(int(indexes[i]))
+        else:
+            key.append(None)
 
-    if indexes[1]:
-        end = int(indexes[1])
-
-    return slice_list[start:end]
+    return slice_list[key[0]:key[1]:key[2]]
 
 
 if __name__ == "__main__":
-    print(get_slice(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], '3:-3'))
+    print(get_slice_stride(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], '3:-3:2'))
