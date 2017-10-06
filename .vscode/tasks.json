@@ -5,20 +5,25 @@
     "tasks": [
         {
             "taskName": "Run Tests",
-            "command": "coverage",
+            "command": "source",
             "args": [
+                "${workspaceFolder}/epenv/bin/activate",
+                "&&",
+                "coverage",
                 "run",
                 "-m",
                 "unittest",
                 "discover",
-                "${fileDirname}/tests/",
+                "${fileDirname}/tests",
                 "&&",
                 "coverage",
                 "report",
                 "-m",
                 "&&",
                 "coverage",
-                "erase"
+                "erase",
+                "&&",
+                "deactivate"
             ],
             "type": "shell",
             "group": "test",
