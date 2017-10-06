@@ -1,6 +1,6 @@
 #!/bin/sh
 
-coverage run -m unittest discover tests/
+coverage run -m unittest discover test/
 
 # reporting coverage
 coverage report -m
