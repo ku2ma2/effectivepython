@@ -4,14 +4,15 @@
 
 import sys
 import os
+import tempfile
 import unittest
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../')
 
-from duplicate_list_comprehension import *
+from generator_expression import *
 
 
-class TestGetFlat(unittest.TestCase):
+class TestLineNumAndSquare(unittest.TestCase):
     """
     入力されたリスト中の数を平方にして返す
     """
@@ -20,10 +21,17 @@ class TestGetFlat(unittest.TestCase):
         """
         成功パターン
         """
-        input = [[1, 2, 3], [4, 5], [6, 7]]
-        expected = [1, 2, 3, 4, 5, 6, 7]
+        expected = [(3, 9), (3, 9), (5, 25)]
 
-        self.assertEqual(get_flat(input), expected)
+        with tempfile.NamedTemporaryFile(mode='w') as f:
+            f.write("""one
+two
+three
+""")
+            f.flush()
+            actual = line_num_and_square(f.name)
+
+        self.assertEqual(actual, expected)
 
 
 if __name__ == '__main__':

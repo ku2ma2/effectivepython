@@ -1,20 +1,29 @@
 """
-### 項目8: リスト内包表記は3つ以上の指揮を避ける
+### 項目9: 大きな内包表記にはジェネレータ式を考える
 
-- リスト内包表記自体は便利だが重ねると読み解くのが難しくなるので３つ以上の式を避けるようにする。
+- 大きな内包表記はファイルから読み込んだりした場合メモリを圧迫するので使わない
+- 代わりにジェネレータ式を使うことによって回避できる
+- さらにジェネレーター式を組み合わせる事も可能
 """
 
 
-def get_flat(original: list):
+def line_num_and_square(my_file: str) -> list:
     """
-    入力された２重構造のリスト中の数を1重階層のリストに変更して返す
+    入力されたファイル名のファイルから文字数とその文字数の二乗を返す
 
-    >>> get_flat([1,2,3],[4,5],[6,7])
-    [1,2,3,4,5,6,7]
+    ファイル名(my_file.txt)の内容が以下だった場合
+    This is a pen.
+    Hello, world
+    以下のように(文字数, 文字数**2)のタプルを行数分リスト化して返る
+
+
+    >>> line_num_and_square('my_file.txt')
+    [(14, 196), (12, 144)]
     """
 
-    return [x for row in original for x in row]
+    return []
 
 
 if __name__ == "__main__":
-    print(get_flat([1, 2, 3], [4, 5]))
+    lists = line_num_and_square('my_file.txt')
+    print(lists)
