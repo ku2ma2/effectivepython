@@ -21,7 +21,6 @@ class TestLineNumAndSquare(unittest.TestCase):
         """
         成功パターン
         """
-        expected = [(3, 9), (3, 9), (5, 25)]
 
         with tempfile.NamedTemporaryFile(mode='w') as f:
             f.write("""one
@@ -29,6 +28,7 @@ two
 three
 """)
             f.flush()
+            expected = [(4, 16), (4, 16), (6, 36)]
             actual = line_num_and_square(f.name)
 
         self.assertEqual(actual, expected)
