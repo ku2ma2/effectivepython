@@ -1,1 +1,3 @@
 # effectivepython
+
+Effective Python のコードメモ
