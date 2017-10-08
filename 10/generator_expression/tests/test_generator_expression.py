@@ -28,7 +28,7 @@ two
 three
 """)
             f.flush()
-            expected = [(4, 16), (4, 16), (6, 36)]
+            expected = [(3, 9), (3, 9), (5, 25)]
             actual = line_num_and_square(f.name)
 
         self.assertEqual(actual, expected)

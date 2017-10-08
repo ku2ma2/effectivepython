@@ -15,14 +15,19 @@ def line_num_and_square(my_file: str) -> list:
     This is a pen
     Hello, world
     以下のように(文字数, 文字数**2)のタプルを行数分リスト化して返る
-    最後の改行も文字に含まれる(rstripしても良いかも…)
 
     >>> line_num_and_square('my_file.txt')
-    [(14, 196), (13, 169)]
+    [(13, 169), (12, 144)]
     """
 
     result = []
-    word_numbers = (len(x) for x in open(my_file))
+
+    lines = []
+    with open(my_file, mode='r', encoding='utf-8') as f:
+        for row in f:
+            lines.append(row.strip())
+
+    word_numbers = (len(x) for x in lines)
     lists = ((x, x**2) for x in word_numbers)
 
     for item in lists:
