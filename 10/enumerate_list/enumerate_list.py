@@ -26,6 +26,4 @@ def convert_enumerate(origin: list, start: int = 0) -> list:
 
 
 if __name__ == "__main__":
-    lists = convert_enumerate(['one', 'two', 'three'])
-    for i, item in lists:
-        print(i, item)
+    print(convert_enumerate(['one', 'two', 'three']))
