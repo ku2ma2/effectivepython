@@ -14,7 +14,7 @@ def devide_json(path: str):
     """
     入力されたリスト内の一番長い文字列を返す
 
-    >>> longest_name(['one','two','three'])
+    >>> devide_json(['one','two','three'])
     'three'
 
     """
