@@ -18,8 +18,9 @@ def devide(first: int, second: int) -> float:
     2.0
 
     >>> devide(12, 0)
-    ValueException
-
+    Traceback (most recent call last):
+    ...
+    ValueError: Invalid input
     """
 
     try:

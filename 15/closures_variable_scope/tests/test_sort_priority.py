@@ -1,5 +1,5 @@
 """
-項目14: Noneを返すよりは例外を返すのテスト
+項目15: クロージャが変数スコープとどう関わるかを知っておくのテスト
 """
 
 import sys
@@ -8,31 +8,27 @@ import unittest
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../')
 
-from devide import *
+from sort_priority import *
 
 
-class TestDevideJson(unittest.TestCase):
+class TestSortPriority(unittest.TestCase):
     """
-    リスト内の一番長い名前を取得する
+    数をソートするが、一部の数が優先するようにする
     """
-
-    def test_value_error(self):
-        """
-        数値に0が含まれているなどの除算できない数を入力
-        した場合はValueError
-        """
-        with self.assertRaises(ValueError):
-            devide(12, 0)
 
     def test_success(self):
         """
         計算した結果をfloatで返す
         """
 
-        actual = 8.0
-        expected = devide(16, 2)
+        numbers = [8, 3, 1, 2, 5, 4, 7, 6]
+        group = {2, 3, 5, 7}
+        expected = [2, 3, 5, 7, 1, 4, 6, 8]
 
-        self.assertEqual(actual, expected)
+        actual = sort_priority(numbers, group)
+
+        self.assertEqual(numbers, expected)
+        # self.assertTrue(actual)
 
 
 if __name__ == '__main__':

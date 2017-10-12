@@ -10,7 +10,7 @@ def get_longest(names: list) -> str:
     """
     入力されたリスト内の一番長い文字列を返す
 
-    >>> longest_name(['one','two','three'])
+    >>> get_longest(['one','two','three'])
     'three'
 
     """

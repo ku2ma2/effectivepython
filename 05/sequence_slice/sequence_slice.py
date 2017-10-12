@@ -13,7 +13,7 @@ def get_slice(slice_list, index: str = ''):
     入力されたスライスを文字列表現されたインデックスを解釈して返す
 
     >>> get_slice(['a','b','c'], '1:3')
-    ['b','c']
+    ['b', 'c']
     """
 
     indexes = index.split(':')
