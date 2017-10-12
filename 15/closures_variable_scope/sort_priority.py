@@ -30,6 +30,7 @@ class Sorter(object):
 
     def __call__(self, check_list):
         if check_list in self.group:
+
             self.found = True
             return (0, check_list)
         return (1, check_list)

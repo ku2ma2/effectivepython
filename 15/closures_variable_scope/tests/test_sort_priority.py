@@ -25,10 +25,11 @@ class TestSortPriority(unittest.TestCase):
         group = {2, 3, 5, 7}
         expected = [2, 3, 5, 7, 1, 4, 6, 8]
 
-        actual = sort_priority(numbers, group)
+        sorter = Sorter(group)
+        numbers.sort(key=sorter)
 
         self.assertEqual(numbers, expected)
-        # self.assertTrue(actual)
+        self.assertTrue(sorter.found)
 
 
 if __name__ == '__main__':
