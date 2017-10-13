@@ -13,8 +13,8 @@ def get_slice_stride(slice_list, index: str = ''):
     入力されたスライスを文字列表現されたインデックスを解釈して返す
     スライスの増分(stride)の
 
-    >>> get_slice(['a','b','c'], '1:3:1')
-    ['b','c']
+    >>> get_slice_stride(['a','b','c'], '1:3:1')
+    ['b', 'c']
     """
 
     indexes = index.split(':')

@@ -12,8 +12,8 @@ def get_first_int(values: dict, key: str, default: int = 0):
     parse_qsが作成する辞書からデフォルトを指定しつつ値を取り出す
     values 辞書から key キーで値を取り出し、値がない場合などは デフォルトの値を利用する
 
-    >>> m = get_first_int({'key':'value'}, 'nokey', 5)
-    >>> print(m) # => 5
+    >>> get_first_int({'key':'value'}, 'nokey', 5)
+    5
 
     TODO: これvaluesの中に文字列が入ってきたら問題が起きそう
     """

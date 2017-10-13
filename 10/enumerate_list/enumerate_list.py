@@ -12,10 +12,10 @@ def convert_enumerate(origin: list, start: int = 0) -> list:
     また、カウンタを開始する数 start を指定するとその数から開始する
 
     >>> convert_enumerate(['one','two','three'])
-    [(0,'one'), (1,'two'), (2,'three')}
+    [(0, 'one'), (1, 'two'), (2, 'three')]
 
     >>> convert_enumerate(['one','two','three'], 1)
-    [(1,'one'), (2,'two'), (3,'three')}
+    [(1, 'one'), (2, 'two'), (3, 'three')]
     """
 
     result = []

@@ -12,10 +12,10 @@ UNDEFINED = []
 
 def devide_json(path: str):
     """
-    入力されたリスト内の一番長い文字列を返す
+    入力されたファイル名のJsonを読み込み除算した数を返す
 
-    >>> devide_json(['one','two','three'])
-    'three'
+    >>> devide_json('test.json')
+    6.0
 
     """
     handle = open(path, 'r+')
