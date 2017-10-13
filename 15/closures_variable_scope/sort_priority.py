@@ -28,6 +28,9 @@ class Sorter(object):
     """
 
     def __init__(self, group):
+        """
+        コンストラクタ group というリストを受け取る
+        """
         self.group = group
         self.found = False
 
