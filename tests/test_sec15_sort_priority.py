@@ -6,7 +6,7 @@ import sys
 import os
 import unittest
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../02')
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../chapter02')
 
 from sec15_sort_priority import Sorter
 

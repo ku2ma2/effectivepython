@@ -7,7 +7,7 @@ import os
 import unittest
 import tempfile
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../01')
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../chapter01')
 
 from sec13_try_except_block import *
 

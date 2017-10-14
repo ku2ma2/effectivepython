@@ -6,7 +6,7 @@ import sys
 import os
 import unittest
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../01')
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../chapter01')
 
 from sec07_list_comprehension import *
 
