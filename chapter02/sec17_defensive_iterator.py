@@ -45,8 +45,8 @@ class ReadVisits(object):
     def __iter__(self):
         """ イテレータマジックメソッド
         """
-        with open(self.data_path) as f:
-            for line in f:
+        with open(self.data_path) as fp:
+            for line in fp:
                 yield int(line)
 
 
