@@ -23,7 +23,7 @@ Effective Python のコードメモ
 
 14. [Noneを返すよりも例外を使おう](https://github.com/ku2ma2/effectivepython/blob/master/chapter02/sec14_exception_is_preferable.py)
 15. [クロージャと変数スコープの関係を知ろう](https://github.com/ku2ma2/effectivepython/blob/master/chapter02/sec15_sort_priority.py)
-16. リストを返す代わりにジェネレータを検討しよう
+16. [リストを返す代わりにジェネレータを検討しよう](https://github.com/ku2ma2/effectivepython/blob/master/chapter02/sec16_consider_generator.py)
 17. 引数を介したイテレーションは防御的に行う
 18. 位置指定引数(positional argument)では視覚的ノイズを減らす
 19. キーワード引数を使ってオプション機能を提供する

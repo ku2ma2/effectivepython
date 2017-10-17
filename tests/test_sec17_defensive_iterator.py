@@ -1,5 +1,5 @@
 """
-項目15: クロージャが変数スコープとどう関わるかを知っておくのテスト
+項目17: 引数に対してイテレータを使うときは確実さを尊ぶのテスト
 """
 
 import sys
@@ -9,22 +9,22 @@ import tempfile
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../chapter02')
 
-from sec16_consider_generator import *
+from sec17_defensive_iterator import *
 
 
-class TestIndexWorsIter(unittest.TestCase):
+class TestNormalizeDefensive(unittest.TestCase):
     """
-    英文文字列(単語がスペースで区切られている)の各単語の位置をイテレータで返す
+    数値リスト numbers の総計と其々の値のパーセンテージをリストにして返す
     """
 
     def test_success(self):
         """
         成功パターン
         """
-        it = index_word_iter('Four score and seven years')
-        actual = list(it)
+        numbers = [15, 35, 80]
+        actual = normalize_defensive(numbers)
 
-        expected = [0, 5, 11, 15, 21]
+        expected = [11.538461538461538, 26.923076923076923, 61.53846153846154]
 
         self.assertEqual(actual, expected)
 
