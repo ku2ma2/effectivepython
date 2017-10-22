@@ -3,7 +3,8 @@
 
 Enforce Clarity with Keyword-Only Arguments
 
-- 関数の引
+- キーワード引数は関数呼び出しの意図を明確にする
+- キーワード専用引数を設定する事で複数の論理フラッグなどの紛らわしさを軽減できる
 """
 
 from datetime import datetime
