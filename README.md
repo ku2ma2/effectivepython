@@ -27,6 +27,6 @@ Effective Python のコードメモ
 17. [引数を介したイテレーションは防御的に行う](https://github.com/ku2ma2/effectivepython/blob/master/chapter02/sec17_defensive_iterator.py)
 18. [可変長引数で視認性をあげる](https://github.com/ku2ma2/effectivepython/blob/master/chapter02/sec18_positional_arguments.py)
 19. [キーワード引数を使ってオプション機能を提供する](https://github.com/ku2ma2/effectivepython/blob/master/chapter02/sec19_keyword_arguments.py)
-20. 動的デフォルト引数ではNoneとドキュメンテーション文字列(docstring)を使おう
+20. [動的デフォルト引数ではNoneとドキュメンテーション文字列(docstring)を使おう](https://github.com/ku2ma2/effectivepython/blob/master/chapter02/sec20_dynamic_arguments.py)
 21. キーワードのみの引数(keyword-only argument)を使って明確にする
 
