@@ -28,5 +28,14 @@ Effective Python のコードメモ
 18. [可変長引数で視認性をあげる](https://github.com/ku2ma2/effectivepython/blob/master/chapter02/sec18_positional_arguments.py)
 19. [キーワード引数を使ってオプション機能を提供する](https://github.com/ku2ma2/effectivepython/blob/master/chapter02/sec19_keyword_arguments.py)
 20. [動的デフォルト引数ではNoneとドキュメンテーション文字列(docstring)を使おう](https://github.com/ku2ma2/effectivepython/blob/master/chapter02/sec20_dynamic_arguments.py)
-21. キーワードのみの引数(keyword-only argument)を使って明確にする
+21. [キーワードのみの引数(keyword-only argument)を使って明確にする](https://github.com/ku2ma2/effectivepython/blob/master/chapter02/sec21_keyword_only_arguments.py)
 
+### 3章　クラスと継承
+
+22. 辞書やタプルで記録管理するよりもヘルパークラスを使う
+23. 単純なインタフェースにはクラスの代わりに関数を使う
+24. @classmethodポリモルフィズムを使ってオブジェクトをジェネリックに
+25. 親クラスを superを使って初期化する
+26. 多重継承は mix-inユーティリティクラスだけに使う
+27. プライベート属性よりはパブリック属性が好ましい
+28. カスタムコンテナ型は collections.abcを継承する
