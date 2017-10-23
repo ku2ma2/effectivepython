@@ -7,8 +7,6 @@ Enforce Clarity with Keyword-Only Arguments
 - キーワード専用引数を設定する事で複数の論理フラッグなどの紛らわしさを軽減できる
 """
 
-from datetime import datetime
-
 
 def safe_division(number, divisor, *,
                   ignore_overflow=False,
