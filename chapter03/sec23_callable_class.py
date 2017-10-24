@@ -25,6 +25,16 @@ class CountMissing(object):
         """
         関数として呼ばれた場合の処理
         added をインクリメントする
+
+        >>> counter = CountMissing()
+        >>> counter()
+        0
+        >>> counter.added
+        1
+        >>> counter()
+        0
+        >>> counter.added
+        2
         """
         self.added += 1
         return 0
