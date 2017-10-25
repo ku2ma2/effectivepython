@@ -32,7 +32,7 @@ Effective Python のコードメモ
 
 ### 3章　クラスと継承
 
-22. 辞書やタプルで記録管理するよりもヘルパークラスを使う
+22. [辞書やタプルで記録管理するよりもヘルパークラスを使う](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec22_helper_class.py)
 23. 単純なインタフェースにはクラスの代わりに関数を使う
 24. @classmethodポリモルフィズムを使ってオブジェクトをジェネリックに
 25. 親クラスを superを使って初期化する
