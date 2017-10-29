@@ -35,7 +35,7 @@ Effective Python のコードメモ
 22. [辞書やタプルで記録管理するよりもヘルパークラスを使う](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec22_helper_class.py)
 23. [単純なインタフェースにはクラスの代わりに関数を使う](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec23_callable_class.py)
 24. [@classmethodポリモルフィズムを使ってオブジェクトをジェネリックに](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec24_classmethod_prolymorphism.py)
-25. 親クラスを superを使って初期化する
+25. [親クラスを superを使って初期化する](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec25_super_class.py)
 26. 多重継承は mix-inユーティリティクラスだけに使う
 27. プライベート属性よりはパブリック属性が好ましい
 28. カスタムコンテナ型は collections.abcを継承する
