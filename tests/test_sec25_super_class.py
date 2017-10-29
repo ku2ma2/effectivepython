@@ -8,36 +8,21 @@ import unittest
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../chapter03')
 
-from sec23_callable_class import *
+from sec25_super_class import *
 
 
-class TestCountMissing(unittest.TestCase):
+class TestMyBaseClass(unittest.TestCase):
     """
-    内部カウンタインターフェースのテスト
+    super表記で引数を省略できるかどうかのテスト
     """
 
-    def test_countup(self):
+    def test_assert_super(self):
         """
-        呼び出されるたびに クラス変数 added が上がっていく(インクリメントされる)。
+        内容は同じだが表記の違うsuperで同じ結果になるかどうかのテスト
         """
-        counter = CountMissing()
-        counter()
-        actual = counter.added
-        expected = 1
+        actual = Explicit(10).value
+        expected = Implicit(10).value
         self.assertEqual(actual, expected)
-
-        # 再度カウントアップすると2になる
-        counter()
-        actual = counter.added
-        expected = 2
-        self.assertEqual(actual, expected)
-
-    def test_callable(self):
-        """
-        クラスメソッドを関数のように呼べるかどうかの確認 __call__
-        """
-        counter = CountMissing()
-        self.assertTrue(callable(counter))
 
 
 if __name__ == '__main__':
