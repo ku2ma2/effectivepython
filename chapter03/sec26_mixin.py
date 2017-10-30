@@ -21,7 +21,13 @@ class ToDictMixin(object):
         """
         return self._traverse_dict(self.__dict__)
 
-    def _traverse_dict(self, key, value):
+    def _traverse_dict(self, instance_dict):
+        output = {}
+        for key, value in instance_dict.items():
+            output[key] = self._traverse(key, value)
+        return output
+
+    def _traverse(self, key, value):
         """ 各属性によって辞書表現に対応するように変更
         """
         if isinstance(value, ToDictMixin):
