@@ -36,5 +36,16 @@ class ToDictMixin(object):
             return value
 
 
+class BinaryTree(ToDictMixin):
+    """
+    二分木の辞書表現
+    """
+
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+
+
 if __name__ == "__main__":
     pass
