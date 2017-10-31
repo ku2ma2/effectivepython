@@ -21,7 +21,13 @@ class ToDictMixin(object):
         """
         return self._traverse_dict(self.__dict__)
 
-    def _traverse_dict(self, key, value):
+    def _traverse_dict(self, instance_dict):
+        output = {}
+        for key, value in instance_dict.items():
+            output[key] = self._traverse(key, value)
+        return output
+
+    def _traverse(self, key, value):
         """ 各属性によって辞書表現に対応するように変更
         """
         if isinstance(value, ToDictMixin):
@@ -34,6 +40,17 @@ class ToDictMixin(object):
             return self._traverse_dict(value.__dict__)
         else:
             return value
+
+
+class BinaryTree(ToDictMixin):
+    """
+    二分木の辞書表現
+    """
+
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
 
 
 if __name__ == "__main__":
