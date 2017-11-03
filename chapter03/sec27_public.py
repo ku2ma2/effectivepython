@@ -1,5 +1,5 @@
 """
-項目26: プライベート属性よりパブリック属性が好ましい
+項目27: プライベート属性よりパブリック属性が好ましい
 
 Prefer Public Attributes Over Private Ones
 
@@ -43,5 +43,4 @@ class ChildClass(ApiClass):
 
 
 if __name__ == "__main__":
-    a = ChildClass()
-    print(a.get(), 'and', a._value, 'should be different')
+    pass
