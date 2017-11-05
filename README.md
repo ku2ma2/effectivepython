@@ -38,7 +38,7 @@ Effective Python のコードメモ
 25. [親クラスを superを使って初期化する](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec25_super_class.py)
 26. [多重継承は mix-inユーティリティクラスだけに使う](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec26_mixin.py)
 27. [プライベート属性よりはパブリック属性が好ましい](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec27_public.py)
-28. カスタムコンテナ型は collections.abcを継承する
+28. [カスタムコンテナ型は collections.abcを継承する](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec28_collections.py)
 
 ### 4章 メタクラスと属性
 
