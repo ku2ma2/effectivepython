@@ -25,7 +25,7 @@ class Bucket(object):
 
     def __repr__(self):
         """
-        文字列表現を返す特殊関数、ここでは割当量を表示
+        Pythonの文字列表現を返す特殊関数、ここでは割当量を表示
         """
         return 'Bucket(quota={})'.format(self.quota)
 
