@@ -38,14 +38,14 @@ Effective Python のコードメモ
 25. [親クラスを superを使って初期化する](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec25_super_class.py)
 26. [多重継承は mix-inユーティリティクラスだけに使う](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec26_mixin.py)
 27. [プライベート属性よりはパブリック属性が好ましい](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec27_public.py)
-28. カスタムコンテナ型は collections.abcを継承する
+28. [カスタムコンテナ型は collections.abcを継承する](https://github.com/ku2ma2/effectivepython/blob/master/chapter03/sec28_collections.py)
 
 ### 4章 メタクラスと属性
 
 29. getやsetメソッドよりも素のままの属性を使う
 30. 属性をリファクタリングする代わりに @propertyを考える
 31. 再利用可能な @propertyメソッドにディスクリプタを使う
-32. 遅延属性には __getattr__, __getattribute__, __setattr__を使う
+32. 遅延属性には \_\_getattr\_\_, \_\_getattribute\_\_, \_\_setattr\_\_を使う
 33. サブクラスをメタクラスで検証する
 34. クラスの存在をメタクラスで登録する
 35. クラス属性をメタクラスで注釈する
