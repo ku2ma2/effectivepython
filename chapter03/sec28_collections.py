@@ -1,45 +1,63 @@
 """
-項目27: プライベート属性よりパブリック属性が好ましい
+項目28: カスタムコンテナ型はcollections.abcを継承する
 
-Prefer Public Attributes Over Private Ones
+Inherit from collections.abc for Custom Container Types
 
-- プライベート属性は、Pythonが厳密に強制しているわけじゃない
-- サブクラスを締め出すのではなく、内部APIと属性を利用できるように想定をしておく
-- プライベート属性としてアクセスを制御するのは避け、保護フィールドについてドキュメンテーションで説明
-- プライベート属性は、コントロール外のサブクラスによる名前衝突を避けるために利用
-
-### とはいえ
-
-- Python使いが「大人」だとは言え名前衝突の判断基準はどうしているのだろうか
-- 属性という風に表現するのには意味があるんだな。インスタンス変数は共有するためのものという扱い
+- 単純なユースケースでは(listやdictのような)Pythonのコンテナ型から直接継承をする
+- カスタムコンテナ型を正しく実装するには多数のメソッドが必要な事に注意する
+- 作ったクラスが必要なインターフェースと振る舞いを備えている事を確かなものにするために
+  カスタムコンテナ型はcollections.absで定義されたインターフェースを継承する
 
 """
 
+from collections.abc import Sequence
 
-class ApiClass(object):
+
+class BinaryNode(object):
     """
-    親クラス
-    """
-
-    def __init__(self):
-        """ コンストラクタで仮の属性を設定する
-        """
-        self.__value = 5
-
-    def get(self):
-        """ プライベート属性を返す
-        """
-        return self.__value
-
-
-class ChildClass(ApiClass):
-    """
-    サブクラス
+    二分木のノード表現
     """
 
-    def __init__(self):
-        super().__init__()
-        self._value = 'hello'
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+
+
+class IndexableNode(BinaryNode):
+    def _search(self, count, index):
+        # (found, count)を返す
+
+        found = None
+
+        if self.left:
+            found, count = self.left._search(count, index)
+
+        if not found and count == index:
+            found = self
+        else:
+            count += 1
+
+        if not found and self.right:
+            found, count = self.right._search(count, index)
+        return found, count
+
+    def __getitem__(self, index):
+        found, _ = self._search(0, index)
+
+        if not found:
+            raise IndexError('Index out of range')
+        return found.value
+
+
+class SequenceNode(IndexableNode):
+    def __len__(self):
+        _, count = self._search(0, None)
+        return count
+
+
+class BetterNode(SequenceNode, Sequence):
+    pass
 
 
 if __name__ == "__main__":
