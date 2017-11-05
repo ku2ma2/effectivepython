@@ -42,7 +42,7 @@ Effective Python のコードメモ
 
 ### 4章 メタクラスと属性
 
-29. getやsetメソッドよりも素のままの属性を使う
+29. [getやsetメソッドよりも素のままの属性を使う](https://github.com/ku2ma2/effectivepython/blob/master/chapter04/sec29_plain_attributes.py)
 30. 属性をリファクタリングする代わりに @propertyを考える
 31. 再利用可能な @propertyメソッドにディスクリプタを使う
 32. 遅延属性には \_\_getattr\_\_, \_\_getattribute\_\_, \_\_setattr\_\_を使う
