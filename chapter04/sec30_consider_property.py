@@ -24,13 +24,35 @@ class Bucket(object):
         """
         self.period_delta = timedelta(seconds=period)
         self.reset_time = datetime.now()
-        self.quota = 0
+        self.max_quota = 0
+        self.quota_consumed = 0
 
     def __repr__(self):
         """
         Pythonの文字列表現を返す特殊関数、ここでは割当量を表示
         """
-        return 'Bucket(quota={})'.format(self.quota)
+        return ('Bucket(max_quota=%d, quota_consumed=%d)' % (self.max_quota, self.quota_consumed))
+
+    @property
+    def quota(self):
+        return self.max_quota - self.quota_consumed
+
+    @quota.setter
+    def quota(self, amount):
+        delta = self.max_quota - amount
+
+        if amount == 0:
+            # 新たなピリオドのための割当量をリセット
+            self.quota_consumed = 0
+            self.max_quota = 0
+        elif delta < 0:
+            # 新たなピリオドのための割当量を入れる
+            assert self.quota_consumed == 0
+            self.max_quota = amount
+        else:
+            # ピリオド内で割当量が消費される
+            assert self.max_quota >= self.quota_consumed
+            self.quota_consumed += delta
 
 
 def fill(bucket, amount):
@@ -43,7 +65,7 @@ def fill(bucket, amount):
 
 def deduct(bucket, amount):
     now = datetime.now()
-    if now - bucket.reset_time > bucket.period_delta:
+    if (now - bucket.reset_time) > bucket.period_delta:
         return False
     if bucket.quota - amount < 0:
         return False
@@ -53,5 +75,10 @@ def deduct(bucket, amount):
 
 if __name__ == "__main__":
     bucket = Bucket(period=60)
-    fill(bucket, amount=100)
+    fill(bucket, 100)
+    print(bucket)
+    if deduct(bucket, 99):
+        print('Had 99 quota')
+    else:
+        print('Not enough for 99 quota')
     print(bucket)
