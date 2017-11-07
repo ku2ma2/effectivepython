@@ -1,5 +1,5 @@
 """
-項目29: 属性をリファクタリングする代わりに property を考える
+項目30: 属性をリファクタリングする代わりに @property を考える
 
 Consider @property Instead of Refactoring Attributes
 
