@@ -74,11 +74,4 @@ def deduct(bucket, amount):
 
 
 if __name__ == "__main__":
-    bucket = Bucket(period=60)
-    fill(bucket, 100)
-    print(bucket)
-    if deduct(bucket, 99):
-        print('Had 99 quota')
-    else:
-        print('Not enough for 99 quota')
-    print(bucket)
+    pass
