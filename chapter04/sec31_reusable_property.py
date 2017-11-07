@@ -15,7 +15,7 @@ class Homework(object):
     宿題
     """
 
-    def __init__(self, period):
+    def __init__(self):
         """
         コンストラクタ
         成績評価を初期化
