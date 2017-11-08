@@ -40,5 +40,16 @@ class Homework(object):
         self._grade = value
 
 
+class Exam(object):
+    def __init__(self):
+        self._writing_grade = 0
+        self._math_grade = 0
+
+    @staticmethod
+    def _check_grade(value):
+        if not (0 <= value <= 100):
+            raise ValueError('Grade must be between 0 and 100')
+
+
 if __name__ == "__main__":
     pass
