@@ -40,7 +40,8 @@ class Homework(object):
     @grade.setter
     def grade(self, value):
         """
-        成績評価のセッター。0〜100以内出ないとValueError
+        成績評価のセッター
+        100点満点のテストなので0〜100以内である事を保証する
         """
         if not (0 <= value <= 100):
             raise ValueError('Grade must be between 0 and 100')
