@@ -36,5 +36,31 @@ class LazyDB(object):
         return value
 
 
+class LoggingLazyDB(LazyDB):
+    """
+    いつ __getattr__ が呼ばれたかのためにログ出力する
+    LazyDBを継承して __getattr__ を上書きして実装
+
+    >>> data = LoggingLazyDB()
+    >>> print('exists:', data.exists)
+    exists: 5
+    >>> print('foo:', data.foo)
+    Called __getattr__(foo)
+    foo: Value for foo
+    >>> print('foo:', data.foo)
+    foo: Value for foo
+
+    """
+
+    def __getattr__(self, name):
+        """
+        いつ呼ばれたかをログ付きで表示
+        super()を使う事で無駄な設定(書籍では無限再帰とか書かれてる)を避けている
+        一度親の setattr() を設定する事で 何度も __getattr__が呼ばれないようにしている
+        """
+        print('Called __getattr__(%s)' % name)
+        return super().__getattr__(name)
+
+
 if __name__ == "__main__":
     pass
