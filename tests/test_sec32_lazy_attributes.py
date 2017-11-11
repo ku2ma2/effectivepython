@@ -57,5 +57,36 @@ class TestLoggingLazyDB(unittest.TestCase):
         self.assertEqual(self.captor.getvalue(), expected)
 
 
+class TestValidatingDB(unittest.TestCase):
+    """
+    データベーストランザクションを想定した属性設定のパターン
+    """
+
+    def setUp(self):
+        self.captor = StringIO()
+        sys.stdout = self.captor
+
+    def tearDown(self):
+        sys.stdout = sys.__stdout__
+
+    def test_getattribute(self):
+        """
+        """
+
+        data = ValidatingDB()
+        print('exists:', data.exists)
+        print('foo:', data.foo)
+        print('foo:', data.foo)
+
+        expected = 'Called __getattribute__(exists)\n'
+        expected += 'exists: 5\n'
+        expected += 'Called __getattribute__(foo)\n'
+        expected += 'foo: Value for foo\n'
+        expected += 'Called __getattribute__(foo)\n'
+        expected += 'foo: Value for foo\n'
+
+        self.assertEqual(self.captor.getvalue(), expected)
+
+
 if __name__ == '__main__':
     unittest.main()

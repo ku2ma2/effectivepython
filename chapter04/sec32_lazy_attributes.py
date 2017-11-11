@@ -102,5 +102,17 @@ class ValidatingDB(object):
             return value
 
 
+class SavingDB(object):
+    def __stattr__(self, name, value):
+        # DBログにデータを残す処理 -- 想定 --
+        super().__setattr__(name, value)
+
+
+class LoggingSavingDB(SavingDB):
+    def __setattr__(self, name, value):
+        print('Called __setattr__(%s, %r)' % (name, value))
+        super().__setattr__(name, value)
+
+
 if __name__ == "__main__":
     pass
