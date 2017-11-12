@@ -130,5 +130,22 @@ class LoggingSavingDB(SavingDB):
         super().__setattr__(name, value)
 
 
+class DirectoryDB(object):
+    """
+    __getattribute__のオブジェクト属性アクセス
+
+    >>> data = DirectoryDB({'foo': 3})
+    >>> data.foo
+    3
+    """
+
+    def __init__(self, data):
+        self._data = data
+
+    def __getattribute__(self, name):
+        data_dict = super().__getattribute__('_data')
+        return data_dict[name]
+
+
 if __name__ == "__main__":
     pass
