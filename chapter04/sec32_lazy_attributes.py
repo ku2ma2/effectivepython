@@ -3,7 +3,11 @@
 
 Use __getattr__, __getattribute__, and __setattr__ for Lazy Attributes
 
-- デ
+- オブジェクトの属性を遅延的にロードしたり保存したりするには、__getattr__と__setattr__を使う
+- __getattr__は見つからない属性にアクセスするときに一度だけ呼び出され、__getattribute__は
+属性がアクセスされるたびに呼び出される
+- super() (すなわちobjectクラス)のメソッドを使ってインスタンス属性に直接アクセスする事で、
+__getattribute__ と __ setattr__とで無限再帰に入るのを防ぐ
 
 ### 所感
 
@@ -60,6 +64,54 @@ class LoggingLazyDB(LazyDB):
         """
         print('Called __getattr__(%s)' % name)
         return super().__getattr__(name)
+
+
+class ValidatingDB(object):
+    """
+    データベーストランザクションを想定した属性設定のパターン
+    """
+
+    def __init__(self):
+        self.exists = 5
+
+    def __getattribute__(self, name):
+        """
+        上記 __getattr__ だと毎回呼ばれないが、データベースのトランザクションが
+        オープンかどうかのチェックなど「毎回」実行したい場合は __getattribute__
+        を利用する
+
+        >>> data = ValidatingDB()
+        >>> print('exists:', data.exists)
+        Called __getattribute__(exists)
+        exists: 5
+
+        >>> print('foo:', data.foo)
+        Called __getattribute__(foo)
+        foo: Value for foo
+        >>> print('foo:', data.foo)
+        Called __getattribute__(foo)
+        foo: Value for foo
+        """
+        print('Called __getattribute__(%s)' % name)
+
+        try:
+            return super().__getattribute__(name)
+        except AttributeError:
+            value = 'Value for %s' % name
+            setattr(self, name, value)
+            return value
+
+
+class SavingDB(object):
+    def __stattr__(self, name, value):
+        # DBログにデータを残す処理 -- 想定 --
+        super().__setattr__(name, value)
+
+
+class LoggingSavingDB(SavingDB):
+    def __setattr__(self, name, value):
+        print('Called __setattr__(%s, %r)' % (name, value))
+        super().__setattr__(name, value)
 
 
 if __name__ == "__main__":
