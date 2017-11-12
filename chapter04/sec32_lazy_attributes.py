@@ -69,6 +69,18 @@ class LoggingLazyDB(LazyDB):
 class ValidatingDB(object):
     """
     データベーストランザクションを想定した属性設定のパターン
+
+    >>> data = ValidatingDB()
+    >>> print('exists:', data.exists)
+    Called __getattribute__(exists)
+    exists: 5
+
+    >>> print('foo:', data.foo)
+    Called __getattribute__(foo)
+    foo: Value for foo
+    >>> print('foo:', data.foo)
+    Called __getattribute__(foo)
+    foo: Value for foo
     """
 
     def __init__(self):
@@ -79,18 +91,6 @@ class ValidatingDB(object):
         上記 __getattr__ だと毎回呼ばれないが、データベースのトランザクションが
         オープンかどうかのチェックなど「毎回」実行したい場合は __getattribute__
         を利用する
-
-        >>> data = ValidatingDB()
-        >>> print('exists:', data.exists)
-        Called __getattribute__(exists)
-        exists: 5
-
-        >>> print('foo:', data.foo)
-        Called __getattribute__(foo)
-        foo: Value for foo
-        >>> print('foo:', data.foo)
-        Called __getattribute__(foo)
-        foo: Value for foo
         """
         print('Called __getattribute__(%s)' % name)
 
@@ -109,6 +109,22 @@ class SavingDB(object):
 
 
 class LoggingSavingDB(SavingDB):
+    """
+    ロギングを追加したDBデータ追加処理
+
+    >>> data = LoggingSavingDB()
+    >>> print('Before:', data.__dict__)
+    Before: {}
+    >>> data.foo = 5
+    Called __setattr__(foo, 5)
+    >>> print('After:', data.__dict__)
+    After: {'foo': 5}
+    >>> data.foo = 7
+    Called __setattr__(foo, 7)
+    >>> print('Finally:', data.__dict__)
+    Finally: {'foo': 7}
+    """
+
     def __setattr__(self, name, value):
         print('Called __setattr__(%s, %r)' % (name, value))
         super().__setattr__(name, value)

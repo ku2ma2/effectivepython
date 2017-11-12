@@ -71,6 +71,7 @@ class TestValidatingDB(unittest.TestCase):
 
     def test_getattribute(self):
         """
+        属性の取得経緯を表示
         """
 
         data = ValidatingDB()
@@ -84,6 +85,39 @@ class TestValidatingDB(unittest.TestCase):
         expected += 'foo: Value for foo\n'
         expected += 'Called __getattribute__(foo)\n'
         expected += 'foo: Value for foo\n'
+
+        self.assertEqual(self.captor.getvalue(), expected)
+
+
+class TestLoggingSavingDB(unittest.TestCase):
+    """
+    ロギングを追加したDBデータ追加処理
+    """
+
+    def setUp(self):
+        self.captor = StringIO()
+        sys.stdout = self.captor
+
+    def tearDown(self):
+        sys.stdout = sys.__stdout__
+
+    def test_setattr(self):
+        """
+        属性設定されるごとに処理される __setattr__テスト
+        """
+
+        data = LoggingSavingDB()
+        print('Before:', data.__dict__)
+        data.foo = 5
+        print('After:', data.__dict__)
+        data.foo = 7
+        print('Finally:', data.__dict__)
+
+        expected = 'Before: {}\n'
+        expected += 'Called __setattr__(foo, 5)\n'
+        expected += 'After: {\'foo\': 5}\n'
+        expected += 'Called __setattr__(foo, 7)\n'
+        expected += 'Finally: {\'foo\': 7}\n'
 
         self.assertEqual(self.captor.getvalue(), expected)
 
