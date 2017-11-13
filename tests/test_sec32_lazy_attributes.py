@@ -122,5 +122,21 @@ class TestLoggingSavingDB(unittest.TestCase):
         self.assertEqual(self.captor.getvalue(), expected)
 
 
+class TestDirectoryDB(unittest.TestCase):
+    """
+    __getattribute__のオブジェクト属性アクセス
+    """
+
+    def test_setattr(self):
+        """
+        属性設定されるごとに処理される __setattr__テスト
+        """
+
+        data = DirectoryDB({'foo': 3})
+        actual = data.foo
+
+        self.assertEqual(actual, 3)
+
+
 if __name__ == '__main__':
     unittest.main()
