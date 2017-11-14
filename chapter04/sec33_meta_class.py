@@ -16,12 +16,12 @@ Validate Subclasses with Metaclasses
 
 class ValidatePolygon(type):
     """
-    多角形表現を検証する
+    多角形表現を検証するメタクラス
     """
 
     def __new__(meta, name, bases, class_dict):
         """
-        インスタンス作成時に呼び出されるメタクラス
+        インスタンス作成時に呼び出される
         """
         # ここで妥当性を検査して Polygonでは行わない
         if bases != (object,):
