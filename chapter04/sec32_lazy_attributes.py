@@ -9,8 +9,6 @@ Use __getattr__, __getattribute__, and __setattr__ for Lazy Attributes
 - super() (すなわちobjectクラス)のメソッドを使ってインスタンス属性に直接アクセスする事で、
 __getattribute__ と __ setattr__とで無限再帰に入るのを防ぐ
 
-### 所感
-
 """
 
 
