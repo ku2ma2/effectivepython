@@ -9,24 +9,47 @@ Validate Subclasses with Metaclasses
 
 ### 所感
 
+- このValidatePolygonのテストはどうやってやるんだろうか…
+
 """
 
 
-class Meta(type):
+class ValidatePolygon(type):
     """
-    DBの行(row)をPythonオブジェクトで表現する
+    多角形表現を検証するメタクラス
     """
 
     def __new__(meta, name, bases, class_dict):
-        print((meta, name, bases, class_dict))
+        """
+        インスタンス作成時に呼び出される
+        """
+        # ここで妥当性を検査して Polygonでは行わない
+        if bases != (object,):
+            if class_dict['sides'] < 3:
+                raise ValueError('Polygon need 3+ sides')
+
         return type.__new__(meta, name, bases, class_dict)
 
 
-class MyClass(object, metaclass=Meta):
-    stuff = 123
+class Polygon(object, metaclass=ValidatePolygon):
+    """
+    多角形(Polygon)の抽象クラス
+    """
+    sides = None  # サブクラスで決定する
 
-    def foo(self):
-        pass
+    @classmethod
+    def interior_angles(cls):
+        """
+        内角の和
+        """
+        return (cls.sides - 2) * 180
+
+
+class Triangle(Polygon):
+    """
+    三角形クラス
+    """
+    sides = 3
 
 
 if __name__ == "__main__":
