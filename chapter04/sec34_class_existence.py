@@ -34,7 +34,27 @@ class Point2D(Serializable):
         return 'Point2D(%d, %d)' % (self.x, self.y)
 
 
+class Deserialize(Serializable):
+    @classmethod
+    def deserialize(cls, json_data):
+        params = json.loads(json_data)
+        return cls(*params['args'])
+
+
+class BetterPoint2D(Deserialize):
+    def __init__(self, x, y):
+        super().__init__(x, y)
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return 'BetterPoint2D(%d, %d)' % (self.x, self.y)
+
+
 if __name__ == "__main__":
-    point = Point2D(5, 3)
-    print('Object:', point)
-    print('Serialized:', point.serialize())
+    point = BetterPoint2D(5, 3)
+    print('Before:', point)
+    data = point.serialize()
+    print('Serialized:', data)
+    after = BetterPoint2D.deserialize(data)
+    print('After:', after)
