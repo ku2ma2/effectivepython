@@ -47,6 +47,6 @@ Effective Python のコードメモ
 31. [再利用可能な @propertyメソッドにディスクリプタを使う](https://github.com/ku2ma2/effectivepython/blob/master/chapter04/sec31_reusable_property.py)
 32. [遅延属性には \_\_getattr\_\_, \_\_getattribute\_\_, \_\_setattr\_\_を使う](https://github.com/ku2ma2/effectivepython/blob/master/chapter04/sec32_lazy_attributes.py)
 33. [サブクラスをメタクラスで検証する](https://github.com/ku2ma2/effectivepython/blob/master/chapter04/sec33_meta_class.py)
-34. クラスの存在をメタクラスで登録する
+34. [クラスの存在をメタクラスで登録する](https://github.com/ku2ma2/effectivepython/blob/master/chapter04/sec34_class_existence.py)
 35. クラス属性をメタクラスで注釈する
 
