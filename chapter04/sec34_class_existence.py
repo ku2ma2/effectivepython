@@ -66,9 +66,4 @@ class BetterPoint2D(Deserialize):
 
 
 if __name__ == "__main__":
-    point = BetterPoint2D(5, 3)
-    print('Before:', point)
-    data = point.serialize()
-    print('Serialized:', data)
-    after = BetterPoint2D.deserialize(data)
-    print('After:', after)
+    pass
