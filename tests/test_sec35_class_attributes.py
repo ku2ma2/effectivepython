@@ -1,5 +1,5 @@
 """
-項目32: 遅延属性には __getattr__, __getattribute__, __setattr__ を使う
+項目35: クラス属性をメタクラスで注釈する
 """
 
 import sys
@@ -14,7 +14,7 @@ from sec35_class_attributes import *
 
 class TestBetterCustomer(unittest.TestCase):
     """
-    ２次元の座標情報を表す
+    顧客情報データベース表現のテスト
     """
 
     def setUp(self):
