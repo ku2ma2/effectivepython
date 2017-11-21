@@ -48,5 +48,15 @@ Effective Python のコードメモ
 32. [遅延属性には \_\_getattr\_\_, \_\_getattribute\_\_, \_\_setattr\_\_を使う](https://github.com/ku2ma2/effectivepython/blob/master/chapter04/sec32_lazy_attributes.py)
 33. [サブクラスをメタクラスで検証する](https://github.com/ku2ma2/effectivepython/blob/master/chapter04/sec33_meta_class.py)
 34. [クラスの存在をメタクラスで登録する](https://github.com/ku2ma2/effectivepython/blob/master/chapter04/sec34_class_existence.py)
-35. クラス属性をメタクラスで注釈する
+35. [クラス属性をメタクラスで注釈する](https://github.com/ku2ma2/effectivepython/blob/master/chapter04/sec35_class_attributes.py)
+
+### 5章 並行性と並列性
+
+36. subprocessを使って子プロセスを管理する
+37. スレッドはブロッキング I/Oに使い、並列性に使うのは避ける
+38. スレッドでのデータ競合を防ぐために Lockを使う
+39. スレッド間の協調作業には Queueを使う
+40. 多くの関数を並行に実行するにはコルーチンを考える
+41. 本当の並列性のために concurrent.futuresを考える 
+
 
