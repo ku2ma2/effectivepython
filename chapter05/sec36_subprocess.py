@@ -11,6 +11,12 @@ import os
 import subprocess
 
 
+def run_sleep(period):
+
+    proc = subprocess.Popen(['sleep', str(period)])
+    return proc
+
+
 def run_openssl(data):
     env = os.environ.copy()
     env['password'] = b'\xe24U\n\xd0Ql3S\x11'
@@ -50,6 +56,15 @@ def main():
     for proc in hash_procs:
         out, err = proc.communicate()
         print(out.strip())
+
+    proc = run_sleep(10)
+    try:
+        proc.communicate(timeout=0.1)
+    except subprocess.TimeoutExpired:
+        proc.terminate()
+        proc.wait()
+
+    print('Exit status', proc.poll())
 
 
 if __name__ == "__main__":
