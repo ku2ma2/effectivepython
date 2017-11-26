@@ -3,7 +3,9 @@
 
 Use subprocess to Manage Child Processes
 
-- 
+- 子プロセスを実行してその入出力ストリームを管理するためにはsubprocessモジュールを使う
+- 子プロセスはPythonインタプリタと並列に実行されて、CPUを最大化することができる
+- communicateのtimeout引数を使って、デッドロックや宙ぶらりん状態の子プロセスを回避する
 
 """
 
