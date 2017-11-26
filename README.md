@@ -52,7 +52,7 @@ Effective Python のコードメモ
 
 ### 5章 並行性と並列性
 
-36. subprocessを使って子プロセスを管理する
+36. [subprocessを使って子プロセスを管理する](https://github.com/ku2ma2/effectivepython/blob/master/chapter05/sec36_subprocess.py)
 37. スレッドはブロッキング I/Oに使い、並列性に使うのは避ける
 38. スレッドでのデータ競合を防ぐために Lockを使う
 39. スレッド間の協調作業には Queueを使う
